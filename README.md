@@ -6,14 +6,22 @@ These are little shader artworks I do on the weekend.
 
 ---
 
-**Sunday, May 11 – Starfield**
+**Saturday, May 24 – Grass Movement**
 
-I turned my old project below into a shader.
+I simulated a bunch of little grass pieces being moved by the wind. I liked the color palette I used.
 
-🔗 [starfield java](https://github.com/MatthewAndreTaylor/Java-Resources/tree/main/StarFeild/src/starfeild)
-🔗 [starfield.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/starfield.glsl)
+🔗 [grass.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/grass.glsl)
 
-[starfield.webm](https://github.com/user-attachments/assets/baef4be8-d1e7-4032-bf8b-70ef3d1dccdf)
+
+---
+
+**Friday, May 23 – Ray Marching Letters**
+
+I drew the first letter of my name "M" using Ray Marching and a custom signed distance function (SDF).
+In future work I could try to render more complex [tetrahedra](https://developer.nvidia.com/gpugems/gpugems3/part-v-physics-simulation/chapter-34-signed-distance-fields-using-single-pass-gpu)
+
+🔗 [sdfM.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/sdfM.glsl)
+
 
 ---
 
@@ -25,5 +33,16 @@ I wanted to see if I could draw procedurally generated 2d trees as a shader. I h
 
 <img src="https://github.com/user-attachments/assets/f71c893b-c24c-4b42-9c79-8d5250f6a7c8" alt="tree_0" width="300" />  
 <img src="https://github.com/user-attachments/assets/e5bd821f-e9cd-4f0f-8d82-98b79512092c" alt="tree_1" width="300" />
+
+---
+
+**Sunday, May 11 – Starfield**
+
+I turned my old highschool project below into a shader.
+
+🔗 [starfield java](https://github.com/MatthewAndreTaylor/Java-Resources/tree/main/StarFeild/src/starfeild)
+🔗 [starfield.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/starfield.glsl)
+
+[starfield.webm](https://github.com/user-attachments/assets/baef4be8-d1e7-4032-bf8b-70ef3d1dccdf)
 
 ---
