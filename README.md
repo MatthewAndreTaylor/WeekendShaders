@@ -12,6 +12,7 @@ I simulated a bunch of little grass pieces being moved by the wind. I liked the 
 
 🔗 [grass.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/grass.glsl)
 
+[grass.webm](https://github.com/user-attachments/assets/e80cddb7-beaa-44fe-9606-65029823abd4)
 
 ---
 
@@ -22,6 +23,7 @@ In future work I could try to render more complex [tetrahedra](https://developer
 
 🔗 [sdfM.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/sdfM.glsl)
 
+[sdfM.webm](https://github.com/user-attachments/assets/fe235c37-2d4c-49d2-aad9-91260261ccad)
 
 ---
 
