@@ -6,6 +6,16 @@ These are little shader artworks I do on the weekend.
 
 ---
 
+**Sunday, June 1 – Procedural Snake Animation**
+
+I animated a snake procedurally. The snake body segments follow a smooth trajectory.
+
+🔗 [snake.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/snake.glsl)
+
+
+
+---
+
 **Saturday, May 24 – Grass Movement**
 
 I simulated a bunch of little grass pieces being moved by the wind. I liked the color palette I used.
