@@ -12,6 +12,13 @@ I animated a snake procedurally. The snake body segments follow a smooth traject
 
 🔗 [snake.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/snake.glsl)
 
+[snake_long.webm](https://github.com/user-attachments/assets/f2fa6d6e-f0ec-4947-8a51-ce6696ea1ad7)
+
+<details>
+  <summary>demo 2</summary>
+  
+  [snake_short.webm](https://github.com/user-attachments/assets/c84dd634-b0e2-4e40-9562-8fbe10534ff7)
+</details>
 
 
 ---
