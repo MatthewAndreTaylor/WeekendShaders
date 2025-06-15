@@ -6,6 +6,15 @@ These are little shader artworks I do on the weekend.
 
 ---
 
+**Sunday, June 15 – Voxel Raymarching Chicken**
+
+I used voxels to design a chicken and rendered it using raymarching
+
+🔗 [voxel_chicken.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/voxel_chicken.glsl)
+
+
+---
+
 **Sunday, June 1 – Procedural Snake Animation**
 
 I animated a snake procedurally. The snake body segments follow a smooth trajectory.
