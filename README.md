@@ -12,6 +12,7 @@ I used voxels to design a chicken and rendered it using raymarching
 
 🔗 [voxel_chicken.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/voxel_chicken.glsl)
 
+[voxel_chicken.webm](https://github.com/user-attachments/assets/1a6db951-8e47-4310-bad0-a5b190888416)
 
 ---
 
