@@ -4,6 +4,15 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Sunday, June 15 – Neural Network Visualization**
+
+I wanted to write a program to visualize a fully connected neural network.
+I used a different color gradient for each network connection in combination with each layer.
+
+🔗 [neuralnet.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/neuralnet.glsl)
+
+
+
 ---
 
 **Sunday, June 15 – Voxel Raymarching Chicken**
