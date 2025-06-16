@@ -11,7 +11,7 @@ I used a different color gradient for each network connection in combination wit
 
 🔗 [neuralnet.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/neuralnet.glsl)
 
-
+[neuralnet.webm](https://github.com/user-attachments/assets/7253f8cc-309c-4c05-9867-ca5c5dc6da35)
 
 ---
 
