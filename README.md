@@ -6,6 +6,14 @@ These are little shader artworks I do on the weekend.
 
 **Sunday, June 15 – Neural Network Visualization**
 
+More procedural character movement added a wiggle and jumping movement.
+
+🔗 [showman.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/showman.glsl)
+
+[showman.webm](https://github.com/user-attachments/assets/f95e20ea-9f28-490d-9492-0534a8be8937)
+
+---
+
 I wanted to write a program to visualize a fully connected neural network.
 I used a different color gradient for each network connection in combination with each layer.
 
