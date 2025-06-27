@@ -4,6 +4,16 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Saturday, June 27 – Katana**
+
+I drew a katana with simple shapes and gave the blade a gradient. It would be cool to animate in the future.
+
+🔗 [katana.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/katana.glsl)
+
+
+
+---
+
 **Sunday, June 15 – Neural Network Visualization**
 
 More procedural character movement added a wiggle and jumping movement.
@@ -25,7 +35,7 @@ I used a different color gradient for each network connection in combination wit
 
 **Sunday, June 15 – Voxel Raymarching Chicken**
 
-I used voxels to design a chicken and rendered it using raymarching
+I used voxels to design a chicken and rendered it using raymarching.
 
 🔗 [voxel_chicken.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/voxel_chicken.glsl)
 
