@@ -10,7 +10,7 @@ I drew a katana with simple shapes and gave the blade a gradient. It would be co
 
 🔗 [katana.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/katana.glsl)
 
-
+![katana](https://github.com/user-attachments/assets/db0653b9-9176-4ac6-af09-d7fa8f57a4d6)
 
 ---
 
