@@ -12,6 +12,12 @@ I wrote a program which compiles a svg to a shader. Currently the program is ver
 
 ![canoe_raster](https://github.com/user-attachments/assets/607a03c1-8d02-46f4-8f19-aff368737e87)
 
+<details>
+  <summary>example input</summary>
+  
+  ![example_input](https://github.com/user-attachments/assets/e9ab1bcb-3914-4b96-829f-c4e96b0411c7)
+</details>
+
 ---
 
 **Saturday, June 27 – Katana**
