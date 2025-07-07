@@ -4,6 +4,16 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Saturday, July 6 - SVG to Shader Compiler**
+
+I wrote a program which compiles a svg to a shader. Currently the program is very simple and does not do any optimization.
+
+🔗 [svg_to_shader.py](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/svg_to_shader.py)
+
+
+
+---
+
 **Saturday, June 27 – Katana**
 
 I drew a katana with simple shapes and gave the blade a gradient. It would be cool to animate in the future.
