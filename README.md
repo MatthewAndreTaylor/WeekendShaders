@@ -4,6 +4,16 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Saturday, August 3 - SDF Tunnel**
+
+I wrote a program that renders a tunnel full of hexagons inspired by an old game I used to play called Run. The curve of the tunnel can be adjusted using the mouse.
+
+🔗 [tunnel.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/tunnel.glsl)
+
+
+
+---
+
 **Saturday, July 6 - SVG to Shader Compiler**
 
 I wrote a program which compiles a svg to a shader. Currently the program is very simple and does not do any optimization.
