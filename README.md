@@ -10,7 +10,7 @@ I wrote a program that renders an infinite stack of blocks at a harmonic offset.
 
 🔗 [tower_of_lire.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/tower_of_lire.glsl)
 
-
+[tower_of_lire.webm](https://github.com/user-attachments/assets/25f83e2b-c0e8-4edd-b63a-71329e65d39d)
 
 ---
 
