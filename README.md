@@ -4,6 +4,16 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Sunday, August 24 - Infinite Tower of Lire**
+
+I wrote a program that renders an infinite stack of blocks at a harmonic offset. The effect resembles a waterfall of blocks being stacked on top of each other. Inspired by a math video I was watching on YouTube about the subject.
+
+🔗 [tower_of_lire.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/tower_of_lire.glsl)
+
+
+
+---
+
 **Saturday, August 3 - SDF Tunnel**
 
 I wrote a program that renders a tunnel full of hexagons inspired by an old game I used to play called Run. The curve of the tunnel can be adjusted using the mouse.
