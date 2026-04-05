@@ -30,6 +30,10 @@ I wrote a program which compiles a svg to a shader. Currently the program is ver
 
 🔗 [svg_to_shader.py](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/svg_to_shader.py)
 
+```sh
+python svg_to_shader.py input.svg
+```
+
 ![canoe_raster](https://github.com/user-attachments/assets/607a03c1-8d02-46f4-8f19-aff368737e87)
 
 <details>
