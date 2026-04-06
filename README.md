@@ -14,7 +14,7 @@ I wrote a simple program that takes a OBJ file and creates a shader program that
 python obj_renderer.py input.obj
 ```
 
-
+https://github.com/user-attachments/assets/3318981e-8b7e-44fc-9b33-76ff76425568
 
 ---
 
