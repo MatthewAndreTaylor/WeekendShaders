@@ -68,7 +68,7 @@ I drew a katana with simple shapes and gave the blade a gradient. It would be co
 
 ---
 
-**Sunday, June 15 – Neural Network Visualization**
+**Sunday, June 15 – Procedural Character Animation**
 
 More procedural character movement added a wiggle and jumping movement.
 
@@ -77,6 +77,8 @@ More procedural character movement added a wiggle and jumping movement.
 [showman.webm](https://github.com/user-attachments/assets/f95e20ea-9f28-490d-9492-0534a8be8937)
 
 ---
+
+**Sunday, June 15 – Neural Network Visualization**
 
 I wanted to write a program to visualize a fully connected neural network.
 I used a different color gradient for each network connection in combination with each layer.
