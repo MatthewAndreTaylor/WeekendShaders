@@ -4,6 +4,20 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Sunday, April 5 - OBJ Rendering**
+
+I wrote a simple program that takes a OBJ file and creates a shader program that renders the geometry. Examples from a sample dataset are provided in the file.
+
+🔗 [obj_renderer.py](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/obj_renderer.py)
+
+```sh
+python obj_renderer.py input.obj
+```
+
+
+
+---
+
 **Sunday, August 24 - Infinite Tower of Lire**
 
 I wrote a program that renders an infinite stack of blocks at a harmonic offset. The effect resembles a waterfall of blocks being stacked on top of each other. Inspired by a math video I was watching on YouTube about the subject.
