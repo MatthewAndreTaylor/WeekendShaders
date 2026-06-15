@@ -1,6 +1,7 @@
 from svgpathtools import svg2paths2, Line, QuadraticBezier, CubicBezier, Arc
 from pathlib import Path as SysPath
 
+
 def cubic_split_half(cubic):
     p0, p1, p2, p3 = cubic.start, cubic.control1, cubic.control2, cubic.end
     q0 = (p0 + p1) / 2
@@ -14,26 +15,30 @@ def cubic_split_half(cubic):
     right = CubicBezier(s, r1, q2, p3)
     return left, right
 
+
 def cubic_to_quadratic(cubic):
     p0, p1, p2, p3 = cubic.start, cubic.control1, cubic.control2, cubic.end
-    ctrl = (3*p1 - p0 + 3*p2 - p3) / 4
+    ctrl = (3 * p1 - p0 + 3 * p2 - p3) / 4
     return QuadraticBezier(p0, ctrl, p3)
+
 
 def cubic_to_quadratic_simple(cubic):
     p0, p1, p2, p3 = cubic.start, cubic.control1, cubic.control2, cubic.end
     return QuadraticBezier(p0, p1, p3)
 
+
 def cubic_to_two_quadratics(cubic):
     left, right = cubic_split_half(cubic)
-    
+
     # Curves are more accurate however, they may miss some details
     # quad_left = cubic_to_quadratic(left)
     # quad_right = cubic_to_quadratic(right)
-    
+
     # Simple quadratics are less accurate but seem to preserve the shape better
     quad_left = cubic_to_quadratic_simple(left)
     quad_right = cubic_to_quadratic_simple(right)
     return [quad_left, quad_right]
+
 
 def segment_to_quadratics(segment):
     if isinstance(segment, QuadraticBezier):
@@ -47,6 +52,7 @@ def segment_to_quadratics(segment):
     else:
         raise TypeError(f"Unsupported segment type: {type(segment)}")
 
+
 def compute_bbox(beziers):
     xs, ys = [], []
     for path_beziers in beziers:
@@ -58,39 +64,43 @@ def compute_bbox(beziers):
     ymin, ymax = min(ys), max(ys)
     return xmin, xmax, ymin, ymax
 
+
 def normalize(c, xmin, xmax, ymin, ymax):
     cx, cy = (xmin + xmax) / 2, (ymin + ymax) / 2
     scale = max(xmax - xmin, ymax - ymin) / 2
     return complex((c.real - cx) / scale, -(c.imag - cy) / scale)
 
+
 def complex_to_vec2(c):
     return f"vec2({c.real:.3f}, {c.imag:.3f})"
 
+
 def generate_chained_min(beziers, xmin, xmax, ymin, ymax):
     exprs = []
-    
+
     for path_beziers in beziers:
         prev_end = None
-        
+
         for bez in path_beziers:
             a = normalize(bez.start, xmin, xmax, ymin, ymax)
             b = normalize(bez.control, xmin, xmax, ymin, ymax)
             c = normalize(bez.end, xmin, xmax, ymin, ymax)
-            
+
             # join all segments into one if they are all connected
             # moving prev_end to the outer scope treats each path as a single segment
             if prev_end is not None:
                 if prev_end != a:
                     a = prev_end
-                    
+
             expr = f"sdBezier(pos, {complex_to_vec2(a)}, {complex_to_vec2(b)}, {complex_to_vec2(c)})"
             exprs.append(expr)
             prev_end = c
-            
+
     res = exprs[0]
     for e in exprs[1:]:
         res = f"min({res}, {e})"
     return res
+
 
 def convert_svg_to_glsl(input_svg):
     paths, _, _ = svg2paths2(input_svg)
@@ -100,7 +110,7 @@ def convert_svg_to_glsl(input_svg):
         path_beziers = []
         for segment in path:
             path_beziers.extend(segment_to_quadratics(segment))
-            
+
         all_beziers.append(path_beziers)
 
     xmin, xmax, ymin, ymax = compute_bbox(all_beziers)
@@ -164,14 +174,22 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 }}"""
     return shader
 
+
 if __name__ == "__main__":
     import argparse
-    
-    parser = argparse.ArgumentParser(description="Convert SVG to GLSL shader with normalized Bézier curves.")
+
+    parser = argparse.ArgumentParser(
+        description="Convert SVG to GLSL shader with normalized Bézier curves."
+    )
     parser.add_argument("input_svg", type=str, help="Path to the input SVG file")
-    parser.add_argument("--output", type=str, default="output_shader.glsl", help="Path to the output GLSL file")
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="output_shader.glsl",
+        help="Path to the output GLSL file",
+    )
     args = parser.parse_args()
-    
+
     glsl_code = convert_svg_to_glsl(args.input_svg)
     SysPath(args.output).write_text(glsl_code)
     print(f"Shader with normalized Bézier curves written to {args.output}")
