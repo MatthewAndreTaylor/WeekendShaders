@@ -8,13 +8,15 @@ These are little shader artworks I do on the weekend.
 
 Using TriStriping and some clever programming, I was able to bypass WebGL limitations and store more complex mesh geometry in the shader without a separate texture.
 
-🔗 [obj_renderer.py](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/obj_renderer_tristrip.py)
+🔗 [obj_renderer_tristrip.py](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/obj_renderer_tristrip.py)
 
 ```sh
 python obj_renderer_tristrip.py input.obj
 ```
 
+<img width="1200" height="675" alt="image" src="https://github.com/user-attachments/assets/f8ac6fca-0a11-4319-9142-902b9d520467" />
 
+The Stanford Bunny is a famous 3D graphics benchmark model scanned at Stanford in 1994. Source: [bunny.obj](https://graphics.stanford.edu/~mdfisher/Data/Meshes/bunny.obj)
 
 ---
 
