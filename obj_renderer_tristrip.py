@@ -52,7 +52,7 @@ def pack_vertices(vertices):
 
 
 def build_triangle_strip(faces):
-    RESTART = 1023
+    RESTART = 0xFFFFFFFF
 
     edge_to_faces = defaultdict(list)
     for fi, (a, b, c) in enumerate(faces):
@@ -98,32 +98,34 @@ def build_triangle_strip(faces):
     return strip
 
 
-def pack_strip(strip):
-    packed = []
-    mask = (1 << 10) - 1
-    i, n = 0, len(strip)
+def format_uvec4_array(data, name):
+    padded_data = list(data)
+    while len(padded_data) % 4 != 0:
+        padded_data.append(0)
 
-    while i < n:
-        a = strip[i] & mask
-        b = strip[i + 1] & mask if i + 1 < n else 0
-        c = strip[i + 2] & mask if i + 2 < n else 0
-        word = a | (b << 10) | (c << 20)
-        packed.append(word)
-        i += 3
+    vecs = []
+    for i in range(0, len(padded_data), 4):
+        vecs.append(
+            f"uvec4({padded_data[i]}U,{padded_data[i+1]}U,{padded_data[i+2]}U,{padded_data[i+3]}U)"
+        )
 
-    return packed
+    return f"const uvec4 {name}[{len(vecs)}] = uvec4[](\n    {','.join(vecs)}\n);\n"
 
 
-glsl_code_template = """const uint RESTART = 1023u;
+glsl_code_template = """const uint RESTART = 0xFFFFFFFFu;
 const float INV_MAX_IDX = 2.0 / 1023.0;
 const float PI = 3.14159;
 
 uint getIndex(int i) { 
-    return (idx[i / 3] >> uint((i % 3) * 10)) & 1023u; 
+    return idx[i / 4][i % 4]; 
+}
+
+uint getVertData(int id) {
+    return vertices[id / 4][id % 4];
 }
 
 vec3 getVertex(uint id) {
-    uint d = vertices[id];
+    uint d = getVertData(int(id));
     return vec3(float(d & 1023u), float((d >> 10) & 1023u), float((d >> 20) & 1023u)) * INV_MAX_IDX - 1.0;
 }
 
@@ -131,8 +133,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = (2.0 * fragCoord - iResolution.xy) / iResolution.y;
     vec2 m = iMouse.x <= 0.0 ? vec2(0.5) : iMouse.xy / iResolution.xy;
 
-    float yaw = (m.x - 0.5) * 3.14159;
-    float pitch = (m.y - 0.5) * 3.14159;
+    float yaw = (m.x - 0.5) * PI;
+    float pitch = (m.y - 0.5) * PI;
     vec3 ro = 2.0 * vec3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch));
     vec3 f = normalize(-ro), r = normalize(cross(vec3(0.0, 1.0, 0.0), f));
     vec3 rd = normalize(r * uv.x + cross(f, r) * uv.y + f * 1.5);
@@ -208,15 +210,15 @@ if __name__ == "__main__":
         verts, faces = parse_obj(f.read())
         vert_data = pack_vertices(verts)
         strip = build_triangle_strip(faces)
-        strip_data = pack_strip(strip)
+
         print(
             f"Parsed {len(verts)} vertices and {len(faces)} faces from {args.input_obj}"
         )
 
         header = (
-            f"const int numIdx = {len(strip)};"
-            f"const uint vertices[{len(vert_data)}] = uint[]({', '.join(f'{v}U' for v in vert_data)});"
-            f"const uint idx[{len(strip_data)}] = uint[]({', '.join(f'{v}U' for v in strip_data)});"
+            f"const int numIdx = {len(strip)};\n"
+            + format_uvec4_array(vert_data, "vertices")
+            + format_uvec4_array(strip, "idx")
         )
         full_shader = header + glsl_code_template
         SysPath(args.output).write_text(full_shader)

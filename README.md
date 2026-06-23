@@ -4,6 +4,20 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Sunday, June 21 - OBJ Rendering cont.**
+
+Using TriStriping and some clever programming, I was able to bypass WebGL limitations and store more complex mesh geometry in the shader without a separate texture.
+
+🔗 [obj_renderer.py](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/obj_renderer_tristrip.py)
+
+```sh
+python obj_renderer_tristrip.py input.obj
+```
+
+
+
+---
+
 **Sunday, April 5 - OBJ Rendering**
 
 I wrote a simple program that takes a OBJ file and creates a shader program that renders the geometry. Examples from a sample dataset are provided in the file.

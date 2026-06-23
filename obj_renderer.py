@@ -45,19 +45,39 @@ def pack_vertices(vertices):
 def pack_faces(faces):
     packed = []
     for a, b, c in faces:
-        d = a | (b << 9) | (c << 18)
-        packed.append(d)
+        packed.extend([a, b, c])
     return packed
 
 
+def format_uvec4_array(data, name):
+    padded_data = list(data)
+    while len(padded_data) % 4 != 0:
+        padded_data.append(0)
+
+    vecs = []
+    for i in range(0, len(padded_data), 4):
+        vecs.append(
+            f"uvec4({padded_data[i]}U,{padded_data[i+1]}U,{padded_data[i+2]}U,{padded_data[i+3]}U)"
+        )
+
+    return f"const uvec4 {name}[{len(vecs)}] = uvec4[](\n    {','.join(vecs)}\n);\n"
+
+
 glsl_code_template = """const float PI = 3.14159;
+uint getFaceData(int id) {
+    return faces[id / 4][id % 4];
+}
+
+uint getVertData(int id) {
+    return vertices[id / 4][id % 4];
+}
 
 uint getIndex(int faceID, int vertexID) {
-    return (faces[faceID] >> (9 * vertexID)) & 511U;
+    return getFaceData(faceID * 3 + vertexID);
 }
 
 vec3 getVertex(uint id) {
-    uint d = vertices[id];
+    uint d = getVertData(int(id));
     vec3 v = vec3(
         float(d & 1023U),
         float((d >> 10) & 1023U),
@@ -175,9 +195,9 @@ if __name__ == "__main__":
         )
 
         header = (
-            f"const int numFaces = {len(faces)};"
-            f"const uint faces[{len(face_data)}] = uint[]({', '.join(f'{f}U' for f in face_data)});"
-            f"const uint vertices[{len(vert_data)}] = uint[]({', '.join(f'{v}U' for v in vert_data)});"
+            f"const int numFaces = {len(faces)};\n"
+            + format_uvec4_array(face_data, "faces")
+            + format_uvec4_array(vert_data, "vertices")
         )
         full_shader = header + glsl_code_template
         SysPath(args.output).write_text(full_shader)
