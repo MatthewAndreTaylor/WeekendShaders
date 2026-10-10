@@ -4,6 +4,15 @@ These are little shader artworks I do on the weekend.
 
 ## 🗓️ Shader Logs
 
+**Saturday, October 10 - Hypocycloid.**
+
+ Another old highschool project below ported into a shader.
+
+🔗 [hypocycloid.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/hypocycloid.glsl)
+
+[hypocycloid.webm](https://github.com/user-attachments/assets/95f07587-f007-4e2a-a2e2-c00a20dbdc88)
+
+
 **Sunday, June 21 - OBJ Rendering cont.**
 
 Using TriStriping and some clever programming, I was able to bypass WebGL limitations and store more complex mesh geometry in the shader without a separate texture.
@@ -166,7 +175,7 @@ I wanted to see if I could draw procedurally generated 2d trees as a shader. I h
 
 **Sunday, May 11 – Starfield**
 
-I turned my old highschool project below into a shader.
+I turned my old highschool project below ported into a shader.
 
 🔗 [starfield java](https://github.com/MatthewAndreTaylor/Java-Resources/tree/main/StarFeild/src/starfeild)
 🔗 [starfield.glsl](https://github.com/MatthewAndreTaylor/WeekendShaders/blob/main/starfield.glsl)
